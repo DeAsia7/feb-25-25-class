@@ -59,27 +59,23 @@ const rl4 = readline.createInterface({
 rl4.question("what is your name?", (username) => {
     console.log(`Hey, ${username}! lets play a game.`);
 rl4.question("Guess a number between 1 and 10?", (guess) => {
-    let X = Math.floor((Math.random() * 10) + 1);
+    let x = Math.floor((Math.random() * 10) + 1);
     let attempts = 3;
-    let correct = false;
-    while (attempts > 0 && !correct) {
-        if (guess == X) {
+    while (attempts > 0) {
+        if (guess == x) {
             console.log("You win!");
-            correct = true;
+            break;
         } else {
             attempts--;
             if (attempts > 0) {
                 console.log(`You have ${attempts} attempts left.`);
                 rl4.question("Guess again?", (guess) => {
-                    console.log(`You guessed ${guess}.`);
+                    console.log(`You lose! The correct number was ${x}.`);
+                    rl4.close();
                 });
-            } else {
-                console.log("You lose!");
-            }
-        }
-    }
-    rl4.close();
-}
-);
+            };
+        };
+    };
+});
 });
 
