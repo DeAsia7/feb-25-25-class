@@ -61,21 +61,37 @@ rl4.question("what is your name?", (username) => {
 rl4.question("Guess a number between 1 and 10?", (guess) => {
     let x = Math.floor((Math.random() * 10) + 1);
     let attempts = 3;
-    while (attempts > 0) {
         if (guess == x) {
             console.log("You win!");
-            break;
         } else {
             attempts--;
             if (attempts > 0) {
                 console.log(`You have ${attempts} attempts left.`);
                 rl4.question("Guess again?", (guess) => {
-                    console.log(`You lose! The correct number was ${x}.`);
-                    rl4.close();
+                    if (guess == x) {
+                        console.log("You win!");
+                    } else {
+                        attempts--;
+                        if (attempts > 0) {
+                            console.log(`You have ${attempts} attempts left.`);
+                            rl4.question("Guess again?", (guess) => {
+                                if (guess == x) {
+                                    console.log("You win!");
+                                } else {
+                                    console.log(`You lose! The correct number was ${x}.`);
+                                    rl4.close();
+                                };
+                            });
+                        };
+                    };
+               
                 });
             };
         };
-    };
-});
-});
+    });
+}); 
+
+
+
+
 
