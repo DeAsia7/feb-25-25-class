@@ -12,7 +12,7 @@ rl.question("What is your name?", (username) => {
 });
 */
 
-// exercise 1 - Age verification
+ exercise 1 - Age verification
 /*
 const readline = require(`readline`);
 const rl2 = readline.createInterface({
@@ -32,9 +32,10 @@ rl2.question("What is your name?", (username) => {
     });
 });
 */
-//exercise 2 favorite color
+exercise 2 favorite color
 /*
 const readline = require(`readline`);
+const _ = require(`lodash`)
 const rl3 = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -42,15 +43,17 @@ const rl3 = readline.createInterface({
 rl3.question("What is your name?", (username) => {
 console.log(`Hey, ${username}!`);
 rl3.question("What is your top 3 favorite colors?", (colors) => {
+    let colorsArray = _.split(colors,","); 
+colorsArray.forEach((color)=>{console.log(color)})
 console.log(`Hey ${username}!, Your top 3 favorite colors are ${colors}.`);
         rl3.close();
 });
 });
 */
 
-//exercise 3
+exercise 3
 //guessing game. you will ask the user for a number between 1 and 10. user get 3 tries. let user know how many attempots they have left and if their guess is correct or not. user run out of attempts prints you lose .
-
+/*
 const readline = require(`readline`);
 const rl4 = readline.createInterface({
     input: process.stdin,
@@ -91,7 +94,7 @@ rl4.question("Guess a number between 1 and 10?", (guess) => {
     }); 
 }); 
 
-
+*/
 
 
 
